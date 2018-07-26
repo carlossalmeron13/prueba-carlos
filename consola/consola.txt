@@ -1,0 +1,31 @@
+*********PRUEBA DE CONSOLA DE LINUX***********
+
+1.- Como podemos ver en este comando, hay un for, el cual va recorriendo cada línea del fichero /etc/passwd,
+del cual va cortando el primer campo de cada fila, en el cual se encuentra el nombre del usuario, seguidamente
+con el comando "crontab -l -u $u" (donde $u es la variable que almacena el nombre de usuario que se ha cortado del 
+fichero en ese momento) podemos saber si el usuario que esta guardado ahora mismo en la variable "u" tiene un crontab.
+
+2.- Con el siguiente comando: chown -R www-data:www-data /var/www/html/
+
+3.- Con el siguiente comando: chmod 770 /var/www/html
+
+4.- cat asdf.txt | cut -d " " -f 1
+
+5.- Primeramente nos iremos al fichero de sudoers con el comando "sudo visudo" y dentro de este escribiremos lo 
+siguiente : ejemplo1    ALL=(ALL:ALL) ALL
+
+6.- La línea que deberemos de escribir en el cron será la siguiente: 20 * * * * date > /var/log/ejemplo-cron.log
+
+7.- Deberemos de ejecutar el siguiente comando: sudo useradd -d /var/www/html/ejemplo2 -m -g ejemplo2 -s /bin/bash ejemplo2.
+
+8.- El comando para cambiarle o ponerle una contraseña sera: sudo passwd contraseña
+
+9.- ssh prueba.ejemplo.com -l ubuntu -p 2022
+
+10.- El comando para crear la variable de entorno sería el siguiente: export PRUEBA=nosolosoftware
+
+11.- El comando para ver los registros mx de google.es es el siguiente: host -t MX google.es
+
+12.- Busca todos los archivos del directorio /home/ubuntu que contengan en el nombre id_rsa? sin distinción entre mayúsculas y minúsculas.
+
+ 

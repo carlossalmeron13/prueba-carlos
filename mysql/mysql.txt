@@ -1,0 +1,16 @@
+********DOCKER CON MYSQL*********
+
+No se crear la imagen de Docker, pero teniendo eso en cuenta voy a realizar todo lo demás que pide el ejercicio, siento las molestias.
+
+1.- Creamos la base de datos: create database prueba;
+
+2.- use mysql;
+    update user set password=PASSWORD("mysql") where user='root';
+
+3.- create user 'docker'@'localhost' identified by 'mysql';
+    grant all privilleges on prueba. * to 'docker'@'localhost';
+
+4.- use prueba;
+    create table ejemplo1 (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, nombre varchar(30));
+    create table ejemplo2 (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, nombre varchar(30));
+    create table ejemplo3 (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, nombre varchar(30));
