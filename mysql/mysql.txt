@@ -1,16 +1,15 @@
-********DOCKER CON MYSQL*********
+1.- Primero crearemos el Dockerfile con: nano Dockerfile (Tendrá el siguiente aspecto)
 
-No se crear la imagen de Docker, pero teniendo eso en cuenta voy a realizar todo lo demás que pide el ejercicio, siento las molestias.
+FROM ubuntu:16.04
+MAINTAINER carlos salmeron santos "carlos.salmeron@gmail.com"
+RUN apt-get update && apt-get install -y mysql-server
+RUN mysql -u root -pusuario -e "create database prueba;"
+RUN mysql -u root -pusuario -e "update user set password=PASSWORD("mysql") where user='root';"
+RUN mysql -u root -pusuario -e "create user 'docker'@'localhost' identified by 'mysql';"
+RUN mysql -u root -pusuario -e "grant all privilleges on prueba. * to 'docker'@'localhost';"
+RUN mysql -u root -pusuario -e "create table ejemplo1 (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, nombre varchar(30));"
+RUN mysql -u root -pusuario -e "create table ejemplo2 (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, nombre varchar(30));"
+RUN mysql -u root -pusuario -e "create table ejemplo3 (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, nombre varchar(30));"
+EXPOSE 3306
 
-1.- Creamos la base de datos: create database prueba;
-
-2.- use mysql;
-    update user set password=PASSWORD("mysql") where user='root';
-
-3.- create user 'docker'@'localhost' identified by 'mysql';
-    grant all privilleges on prueba. * to 'docker'@'localhost';
-
-4.- use prueba;
-    create table ejemplo1 (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, nombre varchar(30));
-    create table ejemplo2 (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, nombre varchar(30));
-    create table ejemplo3 (id INT NOT NULL PRIMARY KEY AUTO_INCREMENT, nombre varchar(30));
+2.- Ahora lo ejecutamos con: sudo docker build -t="prueba_carlos_mysql" .
