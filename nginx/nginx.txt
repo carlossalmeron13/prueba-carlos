@@ -1,0 +1,12 @@
+1.- Primero crearemos el Dockerfile con: nano Dockerfile (Tendrá el siguiente aspecto)
+
+FROM ubuntu:16.04
+MAINTAINER carlos salmeron santos "carlos.salmeron@gmail.com"
+RUN apt-get update && apt-get install -y nginx
+RUN echo 'Prueba Docker Nginx' > /usr/share/nginx/nginx.html
+RUN mkdir /docker && touch /docker/index.html echo 'Docker' > /docker/index.html
+EXPOSE 8080
+
+
+2.- Ahora lo ejecutamos con: sudo docker build -t="prueba_carlos" .
+
